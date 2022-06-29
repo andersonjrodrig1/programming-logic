@@ -2,7 +2,7 @@ fun main(args: Array<String>) {
     //predecessor()
     //areaRectangle()
     //calculateDaysOfLife()
-    calculatePriceCar()
+    calculateSalaryEmployer()
 }
 
 /**
@@ -105,3 +105,17 @@ fun calculatePriceCar() {
  * o número de carros por ele vendidos, o valor total de suas vendas, o salário fixo e o valor que ele recebe por carro
  * vendido. Calcule e escreva o salário final do vendedor.
  */
+fun calculateSalaryEmployer() {
+    print("Informe numero de carros vendidos: ")
+    val numberCars = readLine()!!.toInt()
+    print("Informe valor total das vendas: ")
+    val totalSales = readLine()!!.toFloat()
+    print("Informe o salário: ")
+    val salary = readLine()!!.toFloat()
+    print("Informe o valor da comissão por venda: ")
+    val commission = readLine()!!.toFloat()
+
+    val totalSalary = salary + (numberCars * commission) + (totalSales * 0.05)
+
+    println("Salario Final: $totalSalary")
+}

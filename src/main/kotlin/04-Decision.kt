@@ -2,7 +2,7 @@ fun main(args: Array<String>) {
     //verifyLargeAndSmaller()
     //verifyPositiveOrNegative()
 
-    calculateHours()
+    accountBankValue()
 }
 
 /**
@@ -131,4 +131,113 @@ fun calculateHours() {
         final - initial
 
     println("Duração do jogo: $diff horas")
+}
+
+/**
+ * A jornada de trabalho semanal de um funcionário é de 40 horas. O funcionário que trabalhar mais de 40 horas receberá
+ * hora extra, cujo cálculo é o valor da hora regular com um acréscimo de 50%. Escreva um algoritmo que leia o número
+ * de horas trabalhadas em um mês, o salário por hora e escreva o salário total do funcionário, que deverá ser acrescido
+ * das horas extras, caso tenham sido trabalhadas (considere que o mês possua 4 semanas exatas).
+ */
+fun salaryEmployer() {
+    print("Informe o número de horas trabalhadas no mês: ")
+    val workHours = readLine()!!.toFloat()
+    print("Informe o salário por hora trabalhada: ")
+    val valueWorkHour = readLine()!!.toFloat()
+
+    val totalSalary = if (workHours > 40) {
+        val qtyExtraHour = workHours - 40
+        (qtyExtraHour * (valueWorkHour * 0.50f)) + valueWorkHour * 40
+    } else
+        valueWorkHour * workHours
+
+    println("Salário total: $totalSalary")
+}
+
+/**
+ * Tendo como dados de entrada o nome, a altura e o sexo (M ou F) de uma pessoa, calcule e mostre seu peso ideal,
+ * utilizando as seguintes fórmulas:
+ * - para sexo masculino: peso ideal = (72.7 * altura) - 58
+ * - para sexo feminino: peso ideal = (62.1 * altura) - 44.7
+ */
+fun calculateMdc() {
+    print("Informe o seu nome: ")
+    val name = readLine()
+    print("Informe a altura: ")
+    val heigth = readLine()!!.toFloat()
+    print("Infrome o sexo(M ou F): ")
+    val gender = readLine()
+
+    val weight = if (gender == "M")
+        (72.7 * heigth) - 58
+    else
+        (62.1 * heigth) - 44.7
+
+    println("Peso ideal: $weight")
+}
+
+/**
+ * Ler o salário fixo e o valor das vendas efetuadas pelo vendedor de uma empresa. Sabendo-se que ele recebe uma
+ * comissão de 3% sobre o total das vendas até R$ 1.500,00 mais 5% sobre o que ultrapassar este valor, calcular e
+ * escrever o seu salário total.
+ */
+fun calculateCommision() {
+    print("Informe o salário fixo: ")
+    val salary = readLine()!!.toFloat()
+    print("Informe o valor das vendas: ")
+    val sale = readLine()!!.toFloat()
+
+    var totalSalary = 0f
+
+    if (sale > 1500)
+        totalSalary = ((sale - 1500) * 0.05f)
+
+    totalSalary += ((1500 * 0.03f) + salary)
+
+    println("Total salário: $totalSalary")
+}
+
+/**
+ * Faça um algoritmo para ler: número da conta do cliente, saldo, débito e crédito. Após, calcular e escrever o
+ * saldo atual (saldo atual = saldo - débito + crédito). Também testar se saldo atual for maior ou igual a zero
+ * escrever a mensagem 'Saldo Positivo', senão escrever a mensagem 'Saldo Negativo'.
+ */
+fun accountBankValue() {
+    print("Informe o numero da conta: ")
+    val accountNumber = readLine()
+    print("Informe o saldo: ")
+    val balance = readLine()!!.toFloat()
+    print("Informe o valor de debito: ")
+    val debitValue = readLine()!!.toFloat()
+    print("Informe o valor de credito: ")
+    val creditValue = readLine()!!.toFloat()
+
+    val totalBalance = balance - debitValue + creditValue
+
+    when {
+        totalBalance >= 0 -> println("Saldo Positivo")
+        else -> println("Saldo Negativo")
+    }
+}
+
+/**
+ * Faça um algoritmo para ler: quantidade atual em estoque, quantidade máxima em estoque e quantidade mínima em estoque
+ * de um produto. Calcular e escrever a quantidade média ((quantidade média = quantidade máxima + quantidade mínima)/2).
+ * Se a quantidade em estoque for maior ou igual a quantidade média escrever a mensagem 'Não efetuar compra',
+ * senão escrever a mensagem 'Efetuar compra'.
+ */
+fun calculateStock() {
+    print("Informe quantidade em estoque: ")
+    val actualyStock = readLine()!!.toInt()
+    print("Informe quantidade mínima em estoque: ")
+    val minStock = readLine()!!.toInt()
+    print("Informe quantidade maxima em estoque: ")
+    val maxStock = readLine()!!.toInt()
+
+    val averageStock = (minStock + maxStock) / 2f
+
+    when {
+        actualyStock >= averageStock -> println("Não efetuar compra")
+        else -> println("Efetuar compra")
+    }
 }

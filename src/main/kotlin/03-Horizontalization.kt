@@ -1,6 +1,5 @@
 fun main(args: Array<String>) {
-    //convertFahrenheitToCelsius()
-    weightedAverage()
+
 }
 
 /**

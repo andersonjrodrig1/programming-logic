@@ -1,8 +1,5 @@
 fun main(args: Array<String>) {
-    //verifyLargeAndSmaller()
-    //verifyPositiveOrNegative()
 
-    accountBankValue()
 }
 
 /**

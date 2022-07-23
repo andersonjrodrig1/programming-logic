@@ -1,8 +1,5 @@
 fun main(args: Array<String>) {
-    //predecessor()
-    //areaRectangle()
-    //calculateDaysOfLife()
-    calculateSalaryEmployer()
+
 }
 
 /**

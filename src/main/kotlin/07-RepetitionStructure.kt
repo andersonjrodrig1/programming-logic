@@ -76,3 +76,80 @@ fun notesEvaluation() {
         val option = readLine()
     } while (option?.uppercase() == "S")
 }
+
+/**
+ * Escreva um algoritmo para imprimir os números de 1 (inclusive) a 10 (inclusive) em ordem crescente.
+ */
+fun showNumbersAscend() {
+    for(i in 1..10)
+        print("$i ")
+}
+
+/**
+ * Escreva um algoritmo para imprimir os números de 1 (inclusive) a 10 (inclusive) em ordem decrescente.
+ */
+fun showNumbersDescend() {
+    for (i in 10 downTo 1)
+        print("$i ")
+}
+
+/**
+ * Escreva um algoritmo para imprimir os 10 primeiros números inteiros maiores que 100.
+ */
+fun showNumberBiggersHundred() {
+    for(i in 101..110)
+        print("$i ")
+}
+
+/**
+ * Ler um valor N e imprimir todos os valores inteiros entre 1 (inclusive) e N (inclusive).
+ * Considere que o N será sempre maior que ZERO.
+ */
+fun showIntervalNumbers() {
+    print("Informe um número: ")
+    val number = readLine()!!.toInt()
+
+    for(i in 1..number)
+        print("$i ")
+}
+
+/**
+ * Modifique o exercício anterior para aceitar somente valores maiores que 0 para N. Caso o valor informado
+ * (para N) não seja maior que 0, deverá ser lido um novo valor para N.
+ */
+fun showIntervalNumbersTwo() {
+    var number: Int
+
+    do {
+        print("Informe um número: ")
+        number = readLine()!!.toInt()
+    } while (number <= 0)
+
+    for(i in 1..number)
+        print("$i ")
+}
+
+/**
+ * Escreva um algoritmo que calcule e imprima a tabuada do 8 (1 a 10).
+ */
+fun tableEight() {
+    val eight = 8
+
+    for (i in 1..10)
+        println("$eight x $i = ${eight * i}")
+}
+
+/**
+ * Ler um valor inteiro (aceitar somente valores entre 1 e 10) e escrever a tabuada de 1 a 10 do valor lido.
+ */
+fun tableNumber() {
+    var number: Int
+
+    do {
+        print("Informe um número: ")
+        number = readLine()!!.toInt()
+    } while (number <= 0 || number > 10)
+
+    for (i in 1..10)
+        println("$number x $i = ${number * i}")
+}

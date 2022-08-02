@@ -153,3 +153,169 @@ fun tableNumber() {
     for (i in 1..10)
         println("$number x $i = ${number * i}")
 }
+
+/**
+ * Reescreva o exercício 50 utilizando a estrutura FAÇA, ENQUANTO e um CONTADOR.
+ */
+fun showNumbersDescend2() {
+    var count = 1
+
+    do {
+        print("$count ")
+        count++
+    } while (count <= 10)
+}
+
+/**
+ * Reescreva o exercício 51 utilizando a estrutura ENQUANTO e um CONTADOR.
+ */
+fun showNumbersDescend3() {
+    var count = 1
+
+    while (count <= 10) {
+        print("$count ")
+        count++
+    }
+}
+
+/**
+ * Ler 10 valores e escrever quantos desses valores lidos são NEGATIVOS.
+ */
+fun countValuesNegatives() {
+    var count = 1
+    var countNegatives = 0
+
+    while (count <= 10) {
+        print("Digite um número: ")
+        val number = readLine()!!.toInt()
+
+        if (number < 0) countNegatives++
+
+        count++
+    }
+
+    println("Quantidade de números negativos: $countNegatives")
+}
+
+/**
+ * Ler 10 valores e escrever quantos desses valores lidos estão no intervalo [10,20]
+ * (inlcuindo os valores 10 e 20 no intervalo) e quantos deles estão fora deste intervalo.
+ */
+fun countValuesInterval() {
+    var count = 1
+    var inInterval = 0
+    var outInterval = 0
+
+    while (count <= 10) {
+        print("Digite um número: ")
+
+        when(readLine()!!.toInt()) {
+            in 10..20 -> inInterval++
+            else -> outInterval++
+        }
+
+        count++
+    }
+
+    println("Dentro do intervalo: $inInterval")
+    println("Fora do intervalo: $outInterval")
+}
+
+/**
+ * Ler 10 valores, calcular e escrever a média aritmética desses valores lidos.
+ */
+fun averageValues() {
+    var sum = 0f
+    var count = 1
+
+    do {
+        print("Digite um número: ")
+        val number = readLine()!!.toInt()
+
+        sum += number
+        count++
+    } while (count <= 10)
+
+    val average = sum / count
+
+    print("Média: $average")
+}
+
+/**
+ * Ler o número de alunos existentes em uma turma e, após isto, ler as notas destes alunos,
+ * calcular e escrever a média aritmética dessas notas lidas.
+ */
+fun averageNoteStudents() {
+    print("Informe o número de alunos: ")
+    val amount = readLine()!!.toInt()
+
+    var sum = 0f
+
+    for (i in 1..amount) {
+        print("Informe a nota: ")
+        val note = readLine()!!.toFloat()
+
+        sum += note
+    }
+
+    val average = sum / amount
+
+    print("Médias dos alunos: $average")
+}
+
+/**
+ * Escreva um algoritmo para ler 10 números e ao final da leitura escrever a soma total dos 10 números lidos.
+ */
+fun sumNumbers() {
+    var sum = 0
+    var count = 1
+
+    while (count <= 10) {
+        print("Informe um número: ")
+        val number = readLine()!!.toInt()
+
+        sum += number
+        count++
+    }
+
+    print("Soma dos números: $sum")
+}
+
+/**
+ * Escreva um algoritmo para ler 10 números. Todos os números lidos com valor inferior a 40 devem ser somados.
+ * Escreva o valor final da soma efetuada.
+ */
+fun sumNumberSmallerForty() {
+    var sum = 0
+    var count = 1
+
+    while (count <= 10) {
+        print("Informe um número: ")
+        val number = readLine()!!.toInt()
+
+        if (number < 40)
+            sum += number
+
+        count++
+    }
+
+    print("Soma dos números: $sum")
+}
+
+/**
+ * Ler 2 valores, calcular e escrever a soma dos inteiros existentes entre os 2 valores lidos
+ * (incluindoos valores lidos na soma). Considere que o segundo valor lido será sempre maior que o primeiro valor lido.
+ */
+fun sumIntervalNumbers() {
+    print("Informe um número: ")
+    val initalNumber = readLine()!!.toInt()
+    print("Informe outro número: ")
+    val finalNumber = readLine()!!.toInt()
+
+    var sum = 0
+
+    for (i in  initalNumber..finalNumber)
+        sum += i
+
+    println("Somas do números do intervalo: $sum")
+}

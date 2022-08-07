@@ -319,3 +319,99 @@ fun sumIntervalNumbers() {
 
     println("Somas do números do intervalo: $sum")
 }
+
+/**
+ * O mesmo exercício anterior, mas agora, considere que o segundo valor lido poderá ser maior ou menor
+ * que o primeiro valor lido, ou seja, deve-se testá-los.
+ */
+fun sumIntervalNumber2() {
+    print("Informe um número: ")
+    var initalNumber = readLine()!!.toInt()
+    print("Informe outro número: ")
+    var finalNumber = readLine()!!.toInt()
+
+    var aux = 0
+    var sum = 0
+
+    if (finalNumber < initalNumber) {
+        aux = finalNumber
+        finalNumber = initalNumber
+        initalNumber = aux
+    }
+
+    for (i in  initalNumber..finalNumber)
+        sum += i
+
+    println("Somas do números do intervalo: $sum")
+}
+
+/**
+ * Faça um algoritmo que calcule e escreva a média aritmética dos números inteiros entre 15
+ * (inclusive) e 100 (inclusive).
+ */
+fun averageBetweenNumbers() {
+    var sum = 0
+    var count = 0
+    val inital = 15
+    val final = 100
+
+    for (i in inital .. final) {
+        count++
+        sum += i
+    }
+
+    val average = sum / count
+
+    println("Média dos números entre $inital e $final é $average")
+}
+
+/**
+ * Uma loja está levantando o valor total de todas as mercadorias em estoque. Escreva um algoritmo que permita
+ * a entrada das seguintes informações: a) o número total de mercadorias no estoque; b) o valor de cada mercadoria.
+ * Ao final imprimir o valor total em estoque e a média de valor das mercadorias.
+ */
+fun averageProductsInInvestory() {
+    print("Informe total de mercadorias em estoque: ")
+    val totalInvestory = readLine()!!.toInt()
+
+    var sum = 0f
+
+    for (i in 1 .. totalInvestory) {
+        print("Informe o valor da mercadoria: ")
+        val value = readLine()!!.toFloat()
+
+        sum += value
+    }
+
+    val average = sum / totalInvestory
+
+    println("Valor total em estoque: $sum")
+    println("Média de valor das mercadorias: $average")
+}
+
+/**
+ * O mesmo exercício anterior, mas agora não será informado o número de mercadorias em estoque. Então o funcionamento
+ * deverá ser da seguinte forma: ler o valor da mercadoria e perguntar ‘MAIS MERCADORIAS (S/N)?’. Ao final,
+ * imprimir o valor total em estoque e a média de valor das mercadorias em estoque.
+ */
+fun averageProductsInInvestory2() {
+    var sum = 0f
+    var count = 0
+    var option: String
+
+    do {
+        print("Informe o valor da mercadoria: ")
+        val value = readLine()!!.toFloat()
+
+        sum += value
+        count++
+
+        print("MAIS MERCADORIAS (S/N)? ")
+        option = readLine()!!
+    } while(option.uppercase() == "S")
+
+    val average = sum / count
+
+    println("Valor total em estoque: $sum")
+    println("Média de valor das mercadorias: $average")
+}

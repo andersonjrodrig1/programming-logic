@@ -415,3 +415,131 @@ fun averageProductsInInvestory2() {
     println("Valor total em estoque: $sum")
     println("Média de valor das mercadorias: $average")
 }
+
+/**
+ * Faça um programa que leia 100 valores e no final, escreva o maior e o menor valor lido.
+ */
+fun biggerAndSmaller() {
+    var bigger = 0
+    var smaller = 0
+    var count = 0
+
+    while (count < 100) {
+        print("Digite um número: ")
+        val number = readLine()!!.toInt()
+
+        if ((number > bigger) || (bigger == 0))
+            bigger = number
+
+        if ((number < smaller) || (smaller == 0))
+            smaller = number
+
+        count++
+    }
+
+    println("Maior: $bigger, Menor: $smaller")
+}
+
+/**
+ * Faça um algoritmo para ler uma quantidade e a seguir ler esta quantidade de números. Depois de ler todos os
+ * números o algoritmo deve apresentar na tela o maior dos números lidos e a média dos números lidos.
+ */
+fun biggerAndAverage() {
+    print("Informe a quantidade de números: ")
+    val amount = readLine()!!.toInt()
+
+    var bigger = 0
+    var sum = 0
+
+    for (i in 1 .. amount) {
+        print("Digite um número: ")
+        val number = readLine()!!.toInt()
+
+        if (number > bigger) bigger = number
+
+        sum += number
+    }
+
+    val average = sum / amount
+
+    print("Maior: $bigger, Média: $average")
+}
+
+/**
+ * Faça um algoritmo para ler o código e o preço de 15 produtos, calcular e escrever:
+ * - o maior preço lido
+ * - a média aritmética dos preços dos produtos
+ */
+fun priceProducts() {
+    var codeProduct: String? = null
+    var priceProduct: Float? = null
+    var sum = 0f
+    var count = 0
+
+    do {
+        print("Informe codigo do produto: ")
+        val code = readLine()
+        print("Informe valor do produto: ")
+        val price = readLine()!!.toFloat()
+
+        if (priceProduct == null || priceProduct < price) {
+            priceProduct = price
+            codeProduct = code
+        }
+
+        sum += price
+        count++
+    } while (count < 15)
+
+    val average = sum / count
+
+    println("Maior preço -> code: $codeProduct, price: $priceProduct")
+    println("Média aritmética: $average")
+}
+
+/**
+ * A prefeitura de uma cidade deseja fazer uma pesquisa entre seus habitantes. Faça um algoritmos para coletar
+ * dados sobre o salário e número de filhos de cada habitante e após as leituras, escrever:
+ * a) Média de salário da população
+ * b) Média do número de filhos
+ * c) Maior salário dos habitantes
+ * d) Percentual de pessoas com salário menor que R$ 150,00
+ * Obs.: O final da leituras dos dados se dará com a entrada de um “salário negativo”.
+ */
+fun averageSalaryPopulation() {
+    var sumPopulationSmallerSalary = 0
+    var biggerSalary = 0f
+    var sumSalary = 0f
+    var sumSons = 0
+    var count = 0
+
+    do {
+        print("Informe salário: ")
+        val salary = readLine()!!.toFloat()
+
+        if (salary >= 0f) {
+            print("Quantidade de filhos: ")
+            val amountSons = readLine()!!.toInt()
+
+            sumSalary += salary
+            sumSons += amountSons
+
+            if (salary > biggerSalary)
+                biggerSalary = salary
+
+            if (salary in 0f..150f)
+                sumPopulationSmallerSalary++
+
+            count++
+        }
+    } while (salary >= 0f)
+
+    val averageSalary = sumSalary / count
+    val averageSons = sumSons / count
+    val percentageSmallerSalary = (sumPopulationSmallerSalary * count) / 100f
+
+    println("Média de salário da população: $averageSalary")
+    println("Média do número de filhos: $averageSons")
+    println("Maior salário dos habitantes: $biggerSalary")
+    println("Percentual de pessoas com salário menor que R$ 150,00: $percentageSmallerSalary%")
+}
